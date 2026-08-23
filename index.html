@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b0d10"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="GymTrack"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <title>GymTrack</title>
+</head>
+
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="topbar">
+
+    <div>
+
+      <div class="logo">
+        GymTrack
+      </div>
+
+      <div class="tagline">
+        Train. Track. Improve.
+      </div>
+
+    </div>
+
+    <button
+      id="resetButton"
+      class="header-button"
+    >
+      Reset
+    </button>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main>
+
+
+    <!-- HOME -->
+
+    <section
+      id="homePage"
+      class="page active"
+    >
+
+      <div class="hero">
+
+        <div>
+
+          <div class="hero-label">
+            THIS WEEK
+          </div>
+
+          <h1>
+            Let's train.
+          </h1>
+
+          <p id="weeklyText">
+            0 workouts completed
+          </p>
+
+        </div>
+
+
+        <div class="percentage-circle">
+
+          <span id="weeklyPercentage">
+            0%
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <h2 class="section-heading">
+        Weekly Plan
+      </h2>
+
+
+      <div id="daysList"></div>
+
+    </section>
+
+
+
+    <!-- WORKOUT -->
+
+    <section
+      id="workoutPage"
+      class="page"
+    >
+
+      <button
+        id="backButton"
+        class="back-button"
+      >
+        ← Back
+      </button>
+
+
+      <div class="workout-heading">
+
+        <div
+          id="workoutDay"
+          class="hero-label"
+        ></div>
+
+        <h1 id="workoutTitle">
+        </h1>
+
+        <p id="workoutDescription">
+        </p>
+
+      </div>
+
+
+      <div id="exerciseList"></div>
+
+
+      <!-- REST TIMER -->
+
+      <div class="timer-card">
+
+        <div>
+
+          <div class="timer-title">
+            Rest Timer
+          </div>
+
+          <div
+            id="timerDisplay"
+            class="timer-display"
+          >
+            01:30
+          </div>
+
+        </div>
+
+
+        <div class="timer-buttons">
+
+          <button
+            id="timerStart"
+            class="timer-button primary-small"
+          >
+            Start
+          </button>
+
+          <button
+            id="timerReset"
+            class="timer-button"
+          >
+            Reset
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="finishButton"
+        class="main-button"
+      >
+        Finish Workout ✓
+      </button>
+
+    </section>
+
+
+
+    <!-- PROGRESS -->
+
+    <section
+      id="progressPage"
+      class="page"
+    >
+
+      <h1>
+        Progress
+      </h1>
+
+      <p class="subtitle">
+        Track your strength over time.
+      </p>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <span>
+            Workouts
+          </span>
+
+          <strong id="totalWorkouts">
+            0
+          </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span>
+            Exercises
+          </span>
+
+          <strong id="loggedExercises">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <h2 class="section-heading">
+        Exercise Records
+      </h2>
+
+
+      <div id="progressList"></div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-navigation">
+
+    <button
+      class="navigation-button active"
+      data-page="homePage"
+    >
+
+      <span class="navigation-icon">
+        🏠
+      </span>
+
+      Home
+
+    </button>
+
+
+    <button
+      class="navigation-button"
+      data-page="progressPage"
+    >
+
+      <span class="navigation-icon">
+        📈
+      </span>
+
+      Progress
+
+    </button>
+
+  </nav>
+
+
+
+  <!-- TOAST -->
+
+  <div id="toast"></div>
+
+
+  <script src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
